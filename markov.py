@@ -3,6 +3,8 @@ import re
 
 from collections import defaultdict
 
+import sys
+
 class MarkovChain:
     def __init__(self, lookback=2):
         self.trie = defaultdict(lambda : defaultdict(int))
@@ -70,13 +72,20 @@ def load_data(filename):
 
 
 def main():
-    data = load_data("data/poem")
-    mc = MarkovChain(lookback=1)
-    mc.train(data)
+    n = sys.argv[1:]
+    msg = "LOL! You have to supply the total number of lines to generate."\
+            + "Or else humanity will go extinct right now..."
+    if not n:
+        print(msg.strip())
+    else:
+        n = int(n[0])
+        data = load_data("data/poem")
+        mc = MarkovChain(lookback=1)
+        mc.train(data)
 
-    lines = mc.generate(10)
-    for line in lines:
-        print(line)
+        lines = mc.generate(n)
+        for line in lines:
+            print(line)
 
 
 if __name__ == "__main__":
