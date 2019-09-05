@@ -16,8 +16,8 @@ class MarkovChain:
             Build markov model
         """
         self.lines += lines
-        for title in lines:
-            tokens = title.split()
+        for line in lines:
+            tokens = line.split()
             if len(tokens) > self.lookback:
                 for i in range(len(tokens) + 1):
                     a = ' '.join(tokens[max(0, i-self.lookback) : i])
@@ -53,8 +53,8 @@ class MarkovChain:
                 next_word = self._sample(self.trie[' '.join(sentence[-self.lookback:])].items())
             sentence = ' '.join(sentence)
             flag = True
-            for title in self.lines: #Prune lines that are substrings of actual lines
-                if sentence in title:
+            for line in self.lines: #Prune lines that are substrings of actual lines
+                if sentence in line:
                     flag = False
                     break
             if flag:
@@ -80,7 +80,7 @@ def main():
     else:
         n = int(n[0])
         data = load_data("data/poem")
-        mc = MarkovChain(lookback=1)
+        mc = MarkovChain(lookback=2)
         mc.train(data)
 
         lines = mc.generate(n)
