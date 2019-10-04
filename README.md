@@ -22,6 +22,33 @@ python3 markov.py 10
 
 This generates 10 lines of poem.
 
+### Sample 1
+```bash
+There's something at the edge of a kind
+'Tak Tak' — the sound of time
+Where my soul wait to be stumbled by the “one”.
+I know it. I have seen.
+And I am no one is around to hear it, does it make a sound?
+Each piece tries to bring on an Armageddon
+Sometimes a little blue
+As the time change
+Floating right above where I live
+That is what they serve in the distance
+```
+
+### Sample 2
+`python3 markov.py 6`
+
+
+```bash
+The unknowns and the dead
+Tomorrow. In the world is blind
+As I watch the time walks.
+Your eyes pop out of sight
+Chhhh…. One moment you see me. You cannot see me. You cannot know me.
+The heart isn't the only thing that matters
+```
+
 
 ## Interesting, Heh?
 Of course! It's interesting to see a machine generating poems, right?  
